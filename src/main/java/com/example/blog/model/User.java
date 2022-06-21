@@ -37,4 +37,6 @@ public class User {
     @CreationTimestamp //시간자동입력
     private Timestamp createDate;
 
+
+
 }

@@ -4,12 +4,14 @@ import com.example.blog.model.RoleType;
 import com.example.blog.model.User;
 import com.example.blog.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -17,8 +19,35 @@ import java.util.function.Supplier;
 @RestController
 public class DummyControllerTest {
 
-    @Autowired //UserRepository 타입으로 스프링이 관리하고 있는 객체가 있다면 userRepository에 넣어달라.
+    @Autowired //DI
     private UserRepository userRepository;
+    //UserRepository 타입으로 스프링이 관리하고 있는 객체가 있다면 userRepository에 넣어달라.
+
+    @DeleteMapping("/dummy/user/{id}")
+    public String deleteUser(@PathVariable int id){
+
+        try {
+            userRepository.deleteById(id);
+        }catch (EmptyResultDataAccessException e){ //Exception이 조상class
+            return "삭제실패 id: " +id;
+        }
+        return "삭제완료 id: "+id;
+    }
+
+
+    @Transactional //더티체킹
+    @PutMapping("dummy/user/{id}")
+    public User updateUser(@PathVariable int id, @RequestBody User reqUser){
+
+        User user = userRepository.findById(id).orElseThrow(()->{
+            return new IllegalArgumentException("수정실패");
+        });
+        user.setPassword(reqUser.getPassword());
+        user.setEmail(reqUser.getEmail());
+
+        return user;
+    }
+
 
     @GetMapping("dummy/users")
     public List<User> list(){
@@ -49,12 +78,13 @@ public class DummyControllerTest {
         //json 자동응답 (개발자가 json 라이브러리로 개별변환 안해줘도 됨)
     }
 
+
     @PostMapping("/dummy/join")
-    public String join(User user){
+    public String join(User user){ //key=value , form tag
         user.setRole(RoleType.USER);
         userRepository.save(user);
+
         return "회원가입완료"+user.toString();
+        //toString : 객체 안의 필드를 문자열로 찍어준다
     }
-
-
 }
