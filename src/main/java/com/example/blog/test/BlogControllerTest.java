@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class BlogControllerTest {
 
+    //localhost:8000/blog/test
     @GetMapping("/test")
     public String Hello(@RequestParam String name) {
         return "get요청: " + name;
