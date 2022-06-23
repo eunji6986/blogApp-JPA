@@ -1,17 +1,17 @@
 package com.example.blog.test;
 
+import com.example.blog.model.ConstructerTest;
 import lombok.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 public class Test {
 
-    @GetMapping("/temp/jsp")
-    public String testJSP(){
-        //localhost:80/blog/WEB-INF/views/test.jsp
-        return "test";
+    @GetMapping("/paramTest")
+    public String testJSP(@ModelAttribute ConstructerTest param){
+
+        return param.toString();
     }
-
-
 }

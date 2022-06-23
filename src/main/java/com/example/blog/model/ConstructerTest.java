@@ -1,15 +1,21 @@
 package com.example.blog.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@Builder
+//@RequiredArgsConstructor
 public class ConstructerTest {
 
     private String name;
+    private String test;
+    private String test2;
 
 
 }
+
+
+
+
