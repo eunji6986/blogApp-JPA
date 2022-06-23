@@ -23,6 +23,7 @@ public class DummyControllerTest {
     private UserRepository userRepository;
     //UserRepository 타입으로 스프링이 관리하고 있는 객체가 있다면 userRepository에 넣어달라.
 
+
     @DeleteMapping("/dummy/user/{id}")
     public String deleteUser(@PathVariable int id){
 

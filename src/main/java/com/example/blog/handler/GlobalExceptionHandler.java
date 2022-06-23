@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
-    public String HandlerAllException(Exception e){
+    public String HandlerArgumentException(Exception e){
         return "<h1>"+e.getMessage()+"</h1>";
     }
 

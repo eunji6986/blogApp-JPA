@@ -1,6 +1,7 @@
 package com.example.blog.model;
 
 import ch.qos.logback.core.joran.action.AppenderRefAction;
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,7 +34,7 @@ public class Board {
     private int count;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "userId") // 1:N 관계이므로 joinColumn, name = fk 명
     private User user;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "board")
