@@ -29,6 +29,13 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 //	testImplementation 'org.springframework.security:spring-security-test'
 	implementation group: 'org.apache.tomcat', name: 'tomcat-jasper', version: '9.0.22'
+	//tiles 관련 라이브러리
+	implementation 'org.apache.tiles:tiles-jsp:3.0.5'
+	implementation 'org.apache.tiles:tiles-servlet:3.0.5'
+	implementation 'org.apache.tiles:tiles-core:3.0.5'
+	implementation 'org.apache.tiles:tiles-api:3.0.5'
+	implementation 'org.apache.tiles:tiles-el:3.0.5'
+	implementation 'javax.servlet:jstl:1.2'
 
 }
 
