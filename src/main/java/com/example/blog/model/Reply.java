@@ -25,8 +25,8 @@ public class Reply {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "boardId")
-    private Board board;
+    @JoinColumn(name = "RestaurantId")
+    private Restaurant restaurant;
 
     @ManyToOne
     @JoinColumn(name = "userId")

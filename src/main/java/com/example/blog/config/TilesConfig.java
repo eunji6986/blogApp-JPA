@@ -7,6 +7,7 @@ import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
+//Bean설정은 @Component도 되지만 보통 Configuration으로 설정하는게 좋다
 @Configuration
 public class TilesConfig {
     @Bean(name = "tilesConfigure")

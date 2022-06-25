@@ -34,10 +34,10 @@ public class Board {
     private int count;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "userId") // 1:N 관계이므로 joinColumn, name = fk 명
+    @JoinColumn(name = "userId") // name = fk 명
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "board")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "restaurant")
     private List<Reply> reply;
 
     @CreationTimestamp

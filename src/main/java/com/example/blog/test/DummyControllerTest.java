@@ -88,4 +88,6 @@ public class DummyControllerTest {
         return "회원가입완료"+user.toString();
         //toString : 객체 안의 필드를 문자열로 찍어준다
     }
+
+
 }
