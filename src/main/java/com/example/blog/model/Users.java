@@ -5,6 +5,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 
 
@@ -15,7 +18,7 @@ import java.sql.Timestamp;
 //@DynamicInsert insert시에 null필드 제외 default값 들어갈 수 있도록
 @ToString
 @Entity
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +28,11 @@ public class User {
     @Column(nullable = false,length = 30,unique = true)
     private String username;
 
+    @Size(min = 8,max = 20,message = "비밀번호는 8자이상,20자 이하로 입력해주세요.")
     @Column(nullable = false,length = 100)
     private String password;
 
+    @Email(message = "올바른 이메일을 입력해주세요.")
     @Column(nullable = false,length = 50,unique = true)
     private String email;
 

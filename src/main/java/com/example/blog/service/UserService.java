@@ -1,8 +1,11 @@
 package com.example.blog.service;
 
-import com.example.blog.model.User;
+import com.example.blog.dto.RespDto;
+import com.example.blog.model.Users;
 import com.example.blog.repository.UserRepository;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -21,14 +24,16 @@ public class UserService {
     UserRepository userRepository;
 
     @Transactional //join 내의 로직이 transaction으로 묶이게 된다
-    public Integer join(User user) {
-        try {
-            userRepository.save(user); //save(Entity)
-            return 1;
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("UserService 회원가입(): " + e.getMessage());
-        }
-        return -1;
+    public void join(Users user) {
+        userRepository.save(user);
     }
+
+    public boolean checkExistUsername(String username){
+        return userRepository.existsByUsername(username);
+    }
+
+    public boolean checkExistEmail(String email){
+        return userRepository.existsByUsername(email);
+    }
+
 }

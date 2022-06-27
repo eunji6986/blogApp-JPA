@@ -14,6 +14,6 @@ import org.springframework.http.HttpStatus;
 public class RespDto<T> {
     //HTTP Response(응답) 때 공통적으로 쓸 Dto
     //HttpStatus는 Enum,  static으로 정해진 http 코드 바로 찾을수있어서 HttpStatus타입으로 설정
-    HttpStatus status;
+    int status;
     T data;
 }

@@ -12,7 +12,11 @@ public class TilesTestController {
 
     @GetMapping("/main")
     public String main(){
-        log.info("####main#####");
         return "member/index";
+    }
+
+    @GetMapping("/joinForm")
+    public String join(){
+        return "member/joinForm";
     }
 }

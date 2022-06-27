@@ -39,7 +39,7 @@ public class Restaurant {
 
     @ManyToOne
     @JoinColumn(name = "userId")
-    private User user;
+    private Users user;
 
 
 

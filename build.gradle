@@ -36,6 +36,8 @@ dependencies {
 	implementation 'org.apache.tiles:tiles-api:3.0.5'
 	implementation 'org.apache.tiles:tiles-el:3.0.5'
 	implementation 'javax.servlet:jstl:1.2'
+	//의존성(spring boot 2.3이후)
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 }
 

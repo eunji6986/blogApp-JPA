@@ -35,7 +35,7 @@ public class Board {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId") // name = fk 명
-    private User user;
+    private Users user;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "restaurant")
     private List<Reply> reply;
