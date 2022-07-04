@@ -19,4 +19,8 @@
         <put-attribute name="body" value="/WEB-INF/views/member/joinForm.jsp" />
     </definition>
 
+    <definition name="/loginForm" extends="mainTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/member/loginForm.jsp" />
+    </definition>
+
 </tiles-definitions>

@@ -24,7 +24,7 @@
       <input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력해주세요" name="pwd">
     </div>
   </form>
-    <button id="btn-save" class="btn btn-primary">회원가입</button>
+    <button id="btn-login" class="btn btn-primary">로그인</button>
 </div>
 
 <script src="/blog/js/user.js"></script>

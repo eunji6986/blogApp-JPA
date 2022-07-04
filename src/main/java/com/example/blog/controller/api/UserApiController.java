@@ -21,13 +21,12 @@ public class UserApiController {
 
     @PostMapping("/api/user")
     public RespDto<Integer> save(@RequestBody Users user){
-        System.out.println(user.toString());
+        System.out.println(user.toString() + "회원가입 성공");
         user.setRole(USER);
             userService.join(user);
 
         return new RespDto<Integer>(HttpStatus.OK.value(), 1);
     }
-
 
    @GetMapping("/api/user/{username}/exists")
     public ResponseEntity<Boolean> duplicateUsername(@PathVariable String username){
@@ -37,6 +36,14 @@ public class UserApiController {
     @GetMapping("/api/user/{email}/exists")
     public ResponseEntity<Boolean> duplicateEmail(@PathVariable String email){
         return ResponseEntity.ok(userService.checkExistUsername(email));
+    }
+
+    @PostMapping("/api/user/login")
+    public RespDto<Integer> login(@RequestBody Users user){
+        System.out.println(user.toString() + "로그인 성공");
+//        userService.login(user);
+
+        return new RespDto<Integer>(HttpStatus.OK.value(), 1);
     }
 
 }
